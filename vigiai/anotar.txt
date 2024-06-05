@@ -1,0 +1,17 @@
+pip install opencv-python
+
+pip install numpy
+
+pip install cvlib opencv-python
+
+pip install tensorflow
+
+pip list | grep tensorflow
+
+pip install pycocotools
+
+pip install pycocotools-windows
+
+pip install torch torchvision
+
+pip install flask-socketio

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stream vigiAI</title>
+    <style>
+        #video {
+            display: block;
+            margin: auto;
+        }
+        #alert {
+            text-align: center;
+            font-size: 2em;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align:center;">Stream vigiAI</h1>
+  
+    <img id="video" src="{{ url_for('video_feed') }}" width="640" height="480">
+    <div id="alert"></div>
+
+    <script>
+        const video = document.getElementById('video');
+        const alertDiv = document.getElementById('alert');
+
+        function updatePage(crossed) {
+            if (crossed) {
+                alertDiv.innerText = "Linha foi ultrapassada!";
+            } else {
+                alertDiv.innerText = "";
+            }
+        }
+
+        function fetchCrossed() {
+            fetch('/crossed')
+                .then(response => response.json())
+                .then(data => updatePage(data.crossed))
+                .catch(error => console.error('Erro ao buscar valor de crossed:', error));
+        }
+
+        // Atualizar o valor de crossed periodicamente
+        setInterval(fetchCrossed, 1000);
+    </script>
+</body>
+</html>
