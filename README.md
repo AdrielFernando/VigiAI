@@ -20,6 +20,14 @@ Este projeto utiliza técnicas de visão computacional para detectar pessoas em 
       pip install numpy
       pip install Flask opencv-python numpy
 
+  Execute a aplicação com exibição no navegador: 
+
+     python app2.py
+
+  ou execute com exibição na janela de vídeo:
+
+     python app.py
+
 # Tecnologias usadas:
 
   Python -
